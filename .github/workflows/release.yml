@@ -116,15 +116,22 @@ jobs:
       - name: Normalize version / tag
         id: meta
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          RELEASE_INPUT: ${{ inputs.version }}
+          BUMP_INPUT: ${{ inputs.bump }}
+          PUBLISH_INPUT: ${{ inputs.publish }}
+          REUSE_INPUT: ${{ inputs.reuse_cached_emitters }}
         run: |
           set -euo pipefail
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            RAW="${{ github.event.inputs.version }}"
-            BUMP="${{ github.event.inputs.bump || 'patch' }}"
-            PUBLISH="${{ github.event.inputs.publish }}"
-            REUSE="${{ github.event.inputs.reuse_cached_emitters }}"
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            RAW="${RELEASE_INPUT}"
+            BUMP="${BUMP_INPUT:-patch}"
+            PUBLISH="${PUBLISH_INPUT}"
+            REUSE="${REUSE_INPUT}"
           else
-            RAW="${{ github.ref_name }}"
+            RAW="${REF_NAME}"
             BUMP="patch"
             PUBLISH="true"
             REUSE="true"
