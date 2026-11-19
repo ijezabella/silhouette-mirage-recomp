@@ -1,9 +1,9 @@
 # Silhouette Mirage
 
 <!-- retcomm-readme-metrics -->
-[![GitHub downloads (all assets, all releases)](https://img.shields.io/github/downloads/RetroPortingToolKit/silhouette-mirage-recomp/total)](https://github.com/ijezabella/silhouette-mirage-recomp/releases)
-[![GitHub downloads (latest release)](https://img.shields.io/github/downloads/RetroPortingToolKit/silhouette-mirage-recomp/latest/total)](https://github.com/ijezabella/silhouette-mirage-recomp/releases/latest)
-[![GitHub release](https://img.shields.io/github/v/release/RetroPortingToolKit/silhouette-mirage-recomp)](https://github.com/ijezabella/silhouette-mirage-recomp/releases/latest)
+[![GitHub downloads (all assets, all releases)](https://img.shields.io/github/downloads/ijezabella/silhouette-mirage-recomp/total)](https://github.com/ijezabella/silhouette-mirage-recomp/releases)
+[![GitHub downloads (latest release)](https://img.shields.io/github/downloads/ijezabella/silhouette-mirage-recomp/latest/total)](https://github.com/ijezabella/silhouette-mirage-recomp/releases/latest)
+[![GitHub release](https://img.shields.io/github/v/release/ijezabella/silhouette-mirage-recomp)](https://github.com/ijezabella/silhouette-mirage-recomp/releases/latest)
 <!-- /retcomm-readme-metrics -->
 
 <!-- retcomm-readme-boxart -->
