@@ -1,0 +1,54 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Silhouette Mirage"
+id = "SLUS-00728"
+players = 1
+exe = "disc/SLUS_007.28"
+disc = "disc/Silhouette Mirage (USA).cue"
+load_address = "0x80010100"
+entry_pc = "0x80010CD8"
+text_size = "0x0000C000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Silhouette Mirage (USA) (Track 01).bin"
+cue_name = "Silhouette Mirage (USA).cue"
+boot_exe = "SLUS_007.28"
+known_sizes = [300218688]
+known_md5 = [
+  "916eab42e8b05a1425a86156c1ed2b78",
+]
+known_sha1 = [
+  "9e37436575aac7454f6e113aa22fdbf2ab235773",
+]
+known_crc32 = [
+  "bedcdbfa",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+window_title = "Silhouette Mirage Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 26
+required_disc_fp = "ca43dd5db82f52fe578e69e656b688071333c690d0c74fed40a727f91328f74e"
