@@ -25,113 +25,72 @@ A 2D action platformer where players control Shyna and navigate a world divided 
 | Publisher | Working Designs |
 | Year | 1997 |
 
-Scaffolded with the New Project Layout. See
-`psxrecomp/docs/GAME_PROJECT_SETUP.md` for the full flow.
+# Silhouette Mirage
 
-<!-- retcomm-readme-launcher -->
-## Retro Launcher
+A static recompilation of **Silhouette Mirage** for Windows, built with [PSXRecomp](https://github.com/mstan/psxrecomp).
 
-You can run this title **standalone** (download the release zip, point it at
-your disc, play), or manage installs, updates, and disc/BIOS wiring with
-**[Retro Launcher](https://github.com/RetroPortingToolKit/Retro-Launcher)** —
-the Retro Compilation Manager hub for self-compiling recomps.
+Silhouette Mirage is a 2D action platformer starring Shyna, set in a world divided between the forces of Light and Dark.
 
-[Downloads](https://github.com/RetroPortingToolKit/Retro-Launcher/releases) ·
-[Full README & features](https://github.com/RetroPortingToolKit/Retro-Launcher#readme)
+## Project Status
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/RetroPortingToolKit/Retro-Launcher/main/docs/screenshots/hub-and-game-launcher.png" alt="Retro hub with a background build, next to a title’s recomp-ui launcher" width="720">
-</p>
+**Playable — testing in progress.**
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/RetroPortingToolKit/Retro-Launcher/main/docs/screenshots/queue-and-background-build.png" alt="Background cmake build with titles queued" width="720">
-</p>
+- Successfully built and launched on Windows.
+- Gameplay tested through Level 2.
+- Levels beyond Level 2 have not yet been verified.
+- Infinite Credits cheat tested and confirmed working.
 
-Retro checks for updates, installs the prebuilt release zips, and automates
-BIOS/ROM/save plumbing so you are not stuck repeating each game’s first run by hand.
-<!-- /retcomm-readme-launcher -->
+## Cheat Support
 
-## Legal
+Includes an optional built-in cheat package with toggles available in the mod menu.
 
-You must own the original game. Disc images under `disc/` are gitignored and
-must never be committed. Retail BIOS dumps are not redistributed and no C
-derived from one may be committed; releases run on the bundled MIT OpenBIOS.
+| Cheat | Description |
+|---|---|
+| Infinite Credits | Restores credits to 9 after each level transition. |
+| All Options | Unlocks all options. |
+| Secret Mode | Enables all options and Secret Mode. |
 
-`generated/` (the recompiled game C) **is committed**: releases ship the
-compiled game, built by CI from that tree. Regenerate and commit it whenever
-seeds or the framework pin change.
+All cheats are optional and disabled by default.
 
-Default app icon: `assets/psxrecomp.ico` (and `.png` / `.svg`) — Retro-themed controller mark from `psxrecomp/assets/`. Windows builds embed it via `APP_ICON`.
+### Infinite Credits behaviour
 
-Optional box art under `launcher_assets/img/` may come from
-[libretro-thumbnails](https://github.com/libretro-thumbnails/libretro-thumbnails)
-(`Named_Boxarts`); see `BOXART_SOURCE.txt` when present.
+Credits may decrease during gameplay. When the next loading screen completes during a level transition, credits are restored to 9.
 
-## Quick start (dev)
+This behaviour has been tested and confirmed.
 
-```bash
-git submodule update --init --recursive
-./psxrecomp/tools/ci/build_emitters.sh
-python3 psxrecomp/psxrecomp_cli.py generate \
-  --config game.toml --project-root . --disc disc/<your>.cue
-git add generated && git commit -m "Regenerate game C"
-# Configures, builds, and stages overlay_toolchain/ beside the runtime so
-# streamed overlays can be compiled to native shards (a bare cmake build
-# skips that stage and leaves every overlay gap interpreted).
-python3 psxrecomp/psxrecomp_cli.py rebuild \
-  --config game.toml --project-root . --build-dir build-release --no-pgo
-```
+## Requirements
 
-Official optimized Windows/Linux releases use the maintained shared builder
-with the title disc available. Commit the desired `VERSION`, source and
-framework pins, then run:
+- A legally obtained copy of the original Silhouette Mirage (USA).
+
+The project uses the bundled MIT-licensed OpenBIOS. No retail PlayStation BIOS is required.
+
+Game disc images are not included. You must provide your own legally obtained copy of the game.
+
+## Building
+
+This project uses [PSXRecomp](https://github.com/mstan/psxrecomp).
+
+Clone the repository with its submodules:
 
 ```bash
-scripts/package_release.sh --channel public
-# Use --channel playtest for a non-public package; --platform selects Windows/Linux.
+git clone --recurse-submodules https://github.com/ijezabella/silhouette-mirage-recomp.git
+cd silhouette-mirage-recomp
 ```
 
-On Windows PowerShell, use
-`psxrecomp/tools/package_title_release.ps1 --channel public`. The generated
-`packaging/release.toml` and player instructions define the title payload.
-The shared builder owns regeneration, qualified build defaults, fresh private
-PGO boot training on supported native toolchains, staging and verification.
-Boot training is a build step, not gameplay qualification or a performance
-claim. See `psxrecomp/docs/RELEASING_A_TITLE.md`.
+On Windows, configure your game disc in the project configuration, then run:
 
-The separate *Release builds* CI workflow (tag `vX.Y.Z` or dispatch) builds
-committed `generated/` C without a disc on Linux, Windows and macOS. It uses
-`scripts/package_prebuilt_release.sh` and attaches compiled-game ZIPs. That
-explicit prebuilt path does not train selective PGO and is not the official
-optimized-release command. The common builder does not add macOS support.
+```powershell
+python .\psxrecomp\psxrecomp_cli.py rebuild --config game.toml --project-root . --build-dir build-release --no-pgo
+```
 
-Studio's current Export action still uses the old prebuilt argument contract;
-use the shared command above for optimized releases until Studio adopts the
-recipe/channel interface. Its packager detection and `packaging/` warning also
-need that adoption; the generated recipe is maintained configuration, not a
-forked packager.
+The build process generates the Windows executable in the build directory.
 
-## Symbols
+## Credits
 
-Progressive map: `symbols.toml` → `python3 tools/sync_symbols.py` →
-`psx_symbols.h` (`PSX_FN_*`). See `psxrecomp/docs/SYMBOLS.md`.
+- **Working Designs** — Original game's publisher.
+- **PSXRecomp** — PlayStation static recompilation framework.
+- **OpenBIOS** — MIT-licensed BIOS implementation.
 
-## Framework pins
+Silhouette Mirage is © its respective rights holders.
 
-Submodule gitlinks (`psxrecomp`, optional `recomp-ui`, nested `recomp-net`)
-are authoritative. `framework_pins.txt` is an optional scaffold snapshot;
-release CI logs SHAs with `record_pins.sh` but builds whatever the gitlinks
-resolve to. Bump submodules deliberately — do not float on `main`/`master`
-in release CI.
-
-<!-- retcomm-readme-raid -->
----
-
-<p align="center">
-  <sub><b>R.A.I.D. — Retro AI Development</b> · a Discord for AI-assisted retro reverse-engineering, decomp &amp; recomp</sub>
-</p>
-
-<p align="center">
-  <a href="https://discord.gg/Ad9BwSzctP"><img src=".github/raid-discord.png" alt="Join the Retro AI Development (R.A.I.D.) Discord" width="200"></a>
-</p>
-<!-- /retcomm-readme-raid -->
+This is an unofficial fan project and is not affiliated with or endorsed by the original rights holders.
