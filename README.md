@@ -1,9 +1,9 @@
 # Silhouette Mirage
 
 <!-- retcomm-readme-metrics -->
-[![GitHub downloads (all assets, all releases)](https://img.shields.io/github/downloads/RetroPortingToolKit/silhouette-mirage-recomp/total)](https://github.com/RetroPortingToolKit/silhouette-mirage-recomp/releases)
-[![GitHub downloads (latest release)](https://img.shields.io/github/downloads/RetroPortingToolKit/silhouette-mirage-recomp/latest/total)](https://github.com/RetroPortingToolKit/silhouette-mirage-recomp/releases/latest)
-[![GitHub release](https://img.shields.io/github/v/release/RetroPortingToolKit/silhouette-mirage-recomp)](https://github.com/RetroPortingToolKit/silhouette-mirage-recomp/releases/latest)
+[![GitHub downloads (all assets, all releases)](https://img.shields.io/github/downloads/RetroPortingToolKit/silhouette-mirage-recomp/total)](https://github.com/ijezabella/silhouette-mirage-recomp/releases)
+[![GitHub downloads (latest release)](https://img.shields.io/github/downloads/RetroPortingToolKit/silhouette-mirage-recomp/latest/total)](https://github.com/ijezabella/silhouette-mirage-recomp/releases/latest)
+[![GitHub release](https://img.shields.io/github/v/release/RetroPortingToolKit/silhouette-mirage-recomp)](https://github.com/ijezabella/silhouette-mirage-recomp/releases/latest)
 <!-- /retcomm-readme-metrics -->
 
 <!-- retcomm-readme-boxart -->
@@ -25,11 +25,9 @@ A 2D action platformer where players control Shyna and navigate a world divided 
 | Publisher | Working Designs |
 | Year | 1997 |
 
-# Silhouette Mirage
-
 A static recompilation of **Silhouette Mirage** for Windows, built with [PSXRecomp](https://github.com/mstan/psxrecomp).
 
-Silhouette Mirage is a 2D action platformer starring Shyna, set in a world divided between the forces of Light and Dark.
+Silhouette Mirage is a 2D action platformer starring Shyna, set in a world divided between the forces of Light and Dark using the magic of Silhouette or Mirage.
 
 ## Project Status
 
