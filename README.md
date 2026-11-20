@@ -60,7 +60,7 @@ This behaviour has been tested and confirmed.
 
 ## Requirements
 
-- A legally obtained copy of the original Silhouette Mirage (USA).
+- A legally obtained copy of the original Silhouette Mirage (SLUS-00728).
 
 The project uses the bundled MIT-licensed OpenBIOS. No retail PlayStation BIOS is required.
 
