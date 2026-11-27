@@ -31,15 +31,16 @@ Silhouette Mirage is a 2D action platformer starring Shyna, set in a world divid
 
 ## Project Status
 
-**Playable — testing in progress.**
+**Playable**
 
 - Successfully built and launched on Windows.
-- Gameplay tested through Level 4.
-- Levels beyond Level 4 have not yet been verified.
+- All levels verified as working.
 - Infinite Credits cheat tested and confirmed working.
 - Linux: Unverified (built and untested).
 - macOS: Unverified (built and untested).
-  
+
+Would like it if anyone with Linux or MacOS can confirm if the recomp works, feel free to drop me a message or if there are issues post there.
+
 ## Cheat Support
 
 Includes an optional built-in cheat package with toggles available in the mod menu.
